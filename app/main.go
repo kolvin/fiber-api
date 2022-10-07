@@ -1,8 +1,8 @@
 package main
 
 import (
-	"os"
 	"github.com/gofiber/fiber/v2"
+	"os"
 )
 
 func main() {
