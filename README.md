@@ -14,7 +14,9 @@
 - [Docker](https://docs.docker.com/get-docker/) + [Docker Compose](https://docs.docker.com/compose/install/) are required to run the project
  - [BuildKit](https://www.docker.com/blog/faster-builds-in-compose-thanks-to-buildkit-support/
    ) to optimise builds
+
 ----
+
 ## Run this bad boi
 1. `git clone <repo>`
 2. `cd <repo>`
@@ -23,5 +25,6 @@
    
 #### Local container visual
 
+![Alt text](.docs/dev-env-visual.png?raw=true "env")
 
 ---
