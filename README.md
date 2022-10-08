@@ -2,7 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Contents
 
-- [fiber-api](#fiber-api)
+- [fiber-demo](#fiber-demo)
 - [Prerequisites](#prerequisites)
 - [Run this bad boi](#run-this-bad-boi)
 - [Local container visual](#local-container-visual)
