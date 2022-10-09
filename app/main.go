@@ -1,25 +1,37 @@
 package main
 
 import (
-	"github.com/gofiber/fiber/v2"
 	"os"
+
+	"github.com/gofiber/fiber/v2"
 )
 
+func home(c *fiber.Ctx) error {
+	return c.SendString("Hello shit world")
+}
+
+func greeting(c *fiber.Ctx) error {
+	nameQueryParameter := c.Query("name")
+	if nameQueryParameter != "" {
+		return c.SendString("Hello " + nameQueryParameter + ", welcome to hell")
+		// => Hello <name>, welcome to hell
+	}
+	return c.SendString("Who am i?")
+}
+
+func setupRoutes(app *fiber.App) {
+	app.Get("/", home)
+	app.Get("/greeting", greeting)
+}
+
 func main() {
+	port := os.Getenv("PORT")
+	if os.Getenv("PORT") == "" {
+		port = "3000"
+	}
+
 	app := fiber.New()
+	setupRoutes(app)
 
-	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("Hello shit world")
-		// => Hello shit world
-	})
-	app.Get("/greeting", func(c *fiber.Ctx) error {
-		nameQueryParameter := c.Query("name")
-		if nameQueryParameter != "" {
-			return c.SendString("Hello " + nameQueryParameter + ", welcome to hell")
-			// => Hello <name>, welcome to hell
-		}
-		return c.SendString("Who am i?")
-	})
-
-	app.Listen(":" + os.Getenv("PORT"))
+	app.Listen(":" + port)
 }
